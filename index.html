@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SILAH — Family Care</title>
+<style>
+:root{--teal:#198987;--navy:#12202f;--bg:#f6fafb;--card:#fff;--muted:#657482;--line:#e3ecef;--soft:#e1f3f1}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--navy);background:var(--bg)}
+header{position:sticky;top:0;z-index:10;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1120px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:27px;font-weight:900;color:var(--teal);letter-spacing:2px}.navlinks{display:flex;gap:22px;align-items:center}.navlinks a{color:var(--navy);text-decoration:none;font-size:14px;font-weight:700}
+.btn{border:0;border-radius:14px;padding:12px 17px;font-weight:800;cursor:pointer}.primary{background:var(--teal);color:white}.secondary{background:var(--soft);color:var(--teal)}
+main{max-width:1120px;margin:auto;padding:40px 24px 80px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:65px 0}
+.badge{display:inline-block;background:var(--soft);color:var(--teal);padding:9px 13px;border-radius:999px;font-size:13px;font-weight:800}
+h1{font-size:58px;line-height:1.02;margin:18px 0 14px;letter-spacing:-2px}.hero p{font-size:20px;color:var(--muted);line-height:1.6;max-width:650px}.actions{display:flex;gap:12px;margin-top:25px}
+.phone{background:var(--navy);border-radius:36px;padding:12px;max-width:330px;margin:auto;box-shadow:0 25px 55px #12202f22}
+.screen{background:white;border-radius:27px;padding:25px;min-height:560px}.smalllogo{color:var(--teal);font-weight:900;font-size:19px}.hello{margin-top:35px;background:linear-gradient(135deg,#e1f3f1,#fff);padding:20px;border-radius:22px}.hello h3{margin:5px 0;font-size:24px}.muted{color:var(--muted);font-size:13px}
+.reminder{margin-top:15px;padding:17px;border:1px solid var(--line);border-radius:19px}.rrow{display:flex;gap:12px;align-items:center}.ico{width:44px;height:44px;border-radius:14px;background:var(--soft);display:grid;place-items:center;font-size:20px}
+section{padding:70px 0}.sectionhead{text-align:center;max-width:720px;margin:0 auto 38px}.sectionhead h2{font-size:37px;margin:0 0 10px}.sectionhead p{color:var(--muted);font-size:17px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:25px}.card h3{margin:14px 0 8px}.card p{color:var(--muted);line-height:1.55}
+.featureicon{font-size:28px}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.step{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;text-align:center}.num{width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;margin:auto;font-weight:900}
+.demo{max-width:760px;margin:auto;background:white;border:1px solid var(--line);border-radius:25px;padding:25px}.choice{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:15px 0}.choice button{background:#fff;border:1px solid var(--line);border-radius:15px;padding:14px;font-weight:800;cursor:pointer}.choice button.selected{border-color:var(--teal);background:var(--soft);color:var(--teal)}
+textarea,input{width:100%;border:1px solid var(--line);border-radius:14px;padding:13px;font:inherit;margin:6px 0 12px}.reply{display:flex;gap:10px;flex-wrap:wrap}.reply .btn{flex:1;min-width:150px}
+.qrbox{text-align:center;background:linear-gradient(135deg,#e1f3f1,#fff);padding:35px;border-radius:25px}.qr{width:190px;height:190px;background:white;border:8px solid white;margin:20px auto;display:grid;place-items:center;overflow:hidden}.qr svg{width:100%;height:100%}.code{font-family:monospace;font-size:19px;letter-spacing:2px;font-weight:900}
+footer{background:var(--navy);color:white;padding:35px 24px;text-align:center}.rtl{direction:rtl}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding:35px 0}.grid{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.navlinks a{display:none}h1{font-size:44px}.choice{grid-template-columns:1fr}.phone{max-width:310px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="logo">SILAH</div><div class="navlinks"><a href="#how">How It Works</a><a href="#features">Features</a><a href="#demo">Demo</a><a href="#qr">Family QR</a><button class="btn secondary" onclick="toggleLang()" id="lang">العربية</button></div></div></header>
+
+<main>
+<section class="hero">
+<div><span class="badge" id="badge">Two-way family care</span><h1 id="title">Helping Families Care, Without Forgetting.</h1><p id="desc">SILAH connects grandparents with trusted family members through personal voice reminders, smart notifications, and simple two-way confirmations.</p><div class="actions"><button class="btn primary" onclick="document.querySelector('#demo').scrollIntoView({behavior:'smooth'})" id="try">Try the demo</button><button class="btn secondary" onclick="document.querySelector('#qr').scrollIntoView({behavior:'smooth'})" id="join">Create family QR</button></div></div>
+<div class="phone"><div class="screen"><div class="smalllogo">SILAH</div><div class="hello"><span class="muted">Good morning</span><h3>Welcome back, Mom.</h3><span class="muted">Your family is here to help.</span></div><div class="reminder"><div class="rrow"><div class="ico">💊</div><div><b>Medication reminder</b><div class="muted">8:00 AM • Diabetes medication</div></div></div><div style="margin-top:13px"><button class="btn primary" onclick="toast('Reminder confirmed')">✓ Confirm</button><button class="btn" onclick="toast('We will remind you later')">⏰ Later</button></div></div><div class="reminder"><div class="rrow"><div class="ico">🎙️</div><div><b>Voice message from Ahmed</b><div class="muted">“Mom, it’s time for your medication.”</div></div></div></div></div></div>
+</section>
+
+<section id="how"><div class="sectionhead"><h2 id="howTitle">How SILAH Works</h2><p id="howDesc">A simple two-way flow: family sends a reminder, the grandparent responds, and the family receives the acknowledgement.</p></div><div class="flow"><div class="step"><div class="num">1</div><h3>Create</h3><p class="muted">Family member creates a reminder.</p></div><div class="step"><div class="num">2</div><h3>Send</h3><p class="muted">Personal voice, AI voice, or text.</p></div><div class="step"><div class="num">3</div><h3>Receive</h3><p class="muted">Grandparent gets the notification.</p></div><div class="step"><div class="num">4</div><h3>Reply</h3><p class="muted">Voice, “I Took It”, or text.</p></div><div class="step"><div class="num">5</div><h3>Confirm</h3><p class="muted">Sender receives the acknowledgement.</p></div></div></section>
+
+<section id="features"><div class="sectionhead"><h2>Built Around Real Family Needs</h2><p>Simple enough for grandparents, powerful enough for the whole family.</p></div><div class="grid"><div class="card"><div class="featureicon">🎙️</div><h3>Personal Voice</h3><p>Send a reminder using your real recorded voice.</p></div><div class="card"><div class="featureicon">🤖</div><h3>AI Voice</h3><p>If recording is inconvenient, type the message and use an AI-generated voice.</p></div><div class="card"><div class="featureicon">🔄</div><h3>Two-Way Replies</h3><p>Grandparents can reply by voice, quick confirmation, or text.</p></div><div class="card"><div class="featureicon">🔐</div><h3>Family Permissions</h3><p>The grandparent owns the account and controls who can access what.</p></div><div class="card"><div class="featureicon">🌐</div><h3>Arabic + English</h3><p>Two languages with a senior-friendly interface and large controls.</p></div><div class="card"><div class="featureicon">📱</div><h3>Android + iOS</h3><p>Designed as a cross-platform experience for modern families.</p></div></div></section>
+
+<section id="demo"><div class="sectionhead"><h2>Interactive Reminder Demo</h2><p>Show your instructor how the SILAH communication flow works.</p></div><div class="demo"><b>Choose a message type</b><div class="choice"><button onclick="choose(this,'voice')">🎙️ Record My Voice</button><button onclick="choose(this,'ai')">🤖 AI Voice</button><button onclick="choose(this,'text')">📝 Text Only</button></div><label>Message</label><textarea id="message" rows="3">Mom, it’s time for your diabetes medication. Please don’t forget.</textarea><button class="btn primary" onclick="sendReminder()">Send Reminder</button><div id="replyBox" style="display:none;margin-top:22px;border-top:1px solid var(--line);padding-top:20px"><b>Grandparent Reply</b><p class="muted">Choose how the reminder is acknowledged:</p><div class="reply"><button class="btn primary" onclick="toast('Voice reply sent to Ahmed')">🎙️ Voice Reply</button><button class="btn secondary" onclick="toast('Ahmed received: I Took It ✓')">✓ I Took It</button><button class="btn secondary" onclick="toast('Text reply sent to Ahmed')">💬 Text Reply</button></div></div></div></section>
+
+<section id="qr"><div class="sectionhead"><h2>Family QR Code</h2><p>Use a QR code to invite trusted family members to the correct SILAH family circle. The prototype generates a unique family code for your presentation.</p></div><div class="qrbox"><b>Family ID</b><div class="code" id="familyCode">SILAH-<span></span></div><div class="qr" id="qrCanvas"></div><button class="btn primary" onclick="newFamily()">Generate New Family QR</button><button class="btn secondary" onclick="copyCode()">Copy Family Code</button><p class="muted" id="qrNote">Prototype only: a production QR would contain a secure, expiring invitation link—not private medical information.</p></div></section>
+</main>
+<footer>SILAH • Helping Families Care, Without Forgetting.</footer>
+<div id="toast" style="position:fixed;left:50%;bottom:25px;transform:translateX(-50%);background:#12202f;color:white;padding:13px 20px;border-radius:14px;display:none;z-index:99"></div>
+<script>
+let selected='voice', ar=false;
+function choose(el,type){document.querySelectorAll('.choice button').forEach(b=>b.classList.remove('selected'));el.classList.add('selected');selected=type}
+function sendReminder(){document.getElementById('replyBox').style.display='block';toast(selected==='voice'?'Personal voice reminder sent.':selected==='ai'?'AI voice reminder sent.':'Text reminder sent.')}
+function toast(t){let e=document.getElementById('toast');e.textContent=t;e.style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>e.style.display='none',2200)}
+function code(){return 'SILAH-'+Math.random().toString(36).slice(2,8).toUpperCase()}
+function makeQR(text){let n=21, cells=[]; for(let y=0;y<n;y++){for(let x=0;x<n;x++){let v=((x*17+y*31+text.charCodeAt((x+y)%text.length))%7)<3; if((x<7&&y<7)||(x>=n-7&&y<7)||(x<7&&y>=n-7)){let dx=x<7?x:x-(n-7),dy=y<7?y:y-(n-7);v=(dx==0||dx==6||dy==0||dy==6||(dx>=2&&dx<=4&&dy>=2&&dy<=4))}cells.push(v)}} return `<svg viewBox="0 0 ${n} ${n}" xmlns="http://www.w3.org/2000/svg"><rect width="${n}" height="${n}" fill="white"/>${cells.map((v,i)=>v?`<rect x="${i%n}" y="${Math.floor(i/n)}" width="1" height="1" fill="#12202f"/>`:``).join('')}</svg>`}
+function newFamily(){let c=code();document.querySelector('#familyCode span').textContent=c.slice(6);document.getElementById('qrCanvas').innerHTML=makeQR(c);toast('New family QR generated')}
+function copyCode(){navigator.clipboard?.writeText(document.getElementById('familyCode').textContent);toast('Family code copied')}
+function toggleLang(){ar=!ar;document.documentElement.lang=ar?'ar':'en';document.body.classList.toggle('rtl',ar);document.getElementById('lang').textContent=ar?'English':'العربية';if(ar){document.getElementById('badge').textContent='رعاية عائلية باتجاهين';document.getElementById('title').textContent='نساعد العائلة تهتم، بدون ما تنسى.';document.getElementById('desc').textContent='SILAH يربط الجد والجدة بأفراد العائلة الموثوقين من خلال التذكيرات الصوتية والتأكيدات المتبادلة.';document.getElementById('try').textContent='جربي التطبيق';document.getElementById('join').textContent='إنشاء QR للعائلة';}else{document.getElementById('badge').textContent='Two-way family care';document.getElementById('title').textContent='Helping Families Care, Without Forgetting.';document.getElementById('desc').textContent='SILAH connects grandparents with trusted family members through personal voice reminders, smart notifications, and simple two-way confirmations.';document.getElementById('try').textContent='Try the demo';document.getElementById('join').textContent='Create family QR'}}
+newFamily();
+</script>
+</body></html>
